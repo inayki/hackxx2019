@@ -16,14 +16,17 @@
 import logging
 
 from flask import Flask, render_template
-
+from scripts.label_image import predict
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello():
-    
+    file_name = "hackxx_wis_pictures/pictures/grace_hopper/1_gh.jpg"
+    img_name = predict(file_name)
+    print(img_name)
+
     return render_template("index.html")
     #return 'Hello World v3!'
 
