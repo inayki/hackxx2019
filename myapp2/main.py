@@ -15,7 +15,7 @@
 # [START app]
 import logging
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -23,7 +23,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello World v2!'
+    
+    return render_template("index.html")
+    #return 'Hello World v3!'
 
 
 @app.errorhandler(500)

@@ -1,0 +1,59 @@
+<!--hello world {{ name }}-->
+
+<html>
+    <head>
+        <title>HackXX 2019</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"> 
+        </script>
+
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#blah')
+                            .attr('src', e.target.result);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            } 
+        </script>
+    </head>
+    <body style="background-image: linear-gradient(#7c38e1, #e0aacb); text-align: center; font-family: Verdana; color: white">
+        <h1>Web App Name</h1>
+        <br>
+
+        <h3>
+            Find out which woman in STEM you most resemble and learn about her accomplishments
+        </h3>
+
+        <br>
+
+        <h4>Upload a picture of yourself (.jpg or .jpeg)</h4>
+        <input type="file" onchange="readURL(this);" name="myImage" accept="image/jpeg, image/jpg" style="padding-left: 8%"/>
+
+        <br>
+        <br>
+
+        <img id="blah" src="https://via.placeholder.com/300" alt="your image" />
+
+        <br>
+        <br>
+
+        <button type="button">Find your inspiration</button>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
