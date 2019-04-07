@@ -14,16 +14,29 @@
 
 # [START app]
 import logging
+import os
+from flask import Flask, render_template
+from scripts.label_image import predict
 
-from flask import Flask
-
+UPLOAD_FOLDER = './userImage/'
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route('/')
-def hello():
-    return 'Hello World v2!'
+def root():
+    file_name = "hackxx_wis_pictures/pictures/grace_hopper/1_gh.jpg"
+    img_name = predict(file_name)
+    print(img_name)
+
+    return render_template("index.html")
+    #return 'Hello World v3!'
+
+@app.route('/image', methods=[POST])
+def image():
+    
+
 
 
 @app.errorhandler(500)
